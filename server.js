@@ -7,10 +7,13 @@ app.use(express.json());
 
 // creating route that listens for POST requests on root URL
 app.post('/', (req, res) => {  
-    const acceptHeader = req.get('accept');
+    const acceptHeader = req.get('Accept');
+
+    if (acceptHeader) {
+        res.setHeader('Accept', acceptHeader);
+    }
 
     const responseBody = {
-        acceptHeader: acceptHeader,
         ...req.body
     }
 
