@@ -17,8 +17,6 @@ app.post('/', (req, res) => {
         ...req.body
     }
 
-    console.log("test")
-
     res.json(responseBody)
 });
     
